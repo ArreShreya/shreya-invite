@@ -226,13 +226,13 @@ function IndexContent() {
                 <p key={line}>{line}</p>
               ))}
             </Reveal>
-            {invitation.groomLead && (
+            {invitation.brideLead && (
               <Reveal
                 as="p"
                 delay={160}
                 className="mt-3 font-body text-base leading-relaxed text-text-body sm:text-lg"
               >
-                {invitation.groomLead}
+                {invitation.brideLead}
               </Reveal>
             )}
 
@@ -242,15 +242,15 @@ function IndexContent() {
               delay={200}
               className="mt-4 font-emotional text-4xl leading-tight text-text-heading sm:text-5xl"
             >
-              {invitation.groomName}
+              {invitation.brideName}
             </Reveal>
             <Reveal
               as="div"
               delay={240}
               className="mt-3 max-w-3xl space-y-2 font-body text-sm leading-relaxed text-text-secondary sm:text-base"
             >
-              <p>{invitation.groomGrandparents}</p>
-              <p>{invitation.groomParents}</p>
+              <p>{invitation.brideGrandparents}</p>
+              <p>{invitation.brideParents}</p>
             </Reveal>
 
             <Reveal
@@ -267,14 +267,14 @@ function IndexContent() {
               delay={320}
               className="font-emotional text-4xl leading-tight text-text-heading sm:text-5xl"
             >
-              {invitation.brideName}
+              {invitation.groomName}
             </Reveal>
             <Reveal
               as="p"
               delay={360}
               className="mt-3 max-w-3xl font-body text-sm leading-relaxed text-text-secondary sm:text-base"
             >
-              {invitation.brideParents}
+              {invitation.groomParents}
             </Reveal>
             {invitation.announcement && (
               <Reveal
@@ -319,44 +319,21 @@ function IndexContent() {
               
               <Reveal variant="left" delay={120}>
                 <p className="font-body text-sm uppercase text-text-secondary sm:text-base">
-                  {t.theGroom}
-                </p>
-                <p className="mt-3 font-emotional text-3xl text-text-heading">{t.groomFull}</p>
-              </Reveal>
-              <Reveal variant="right" delay={120}>
-                <p className="font-body text-sm uppercase text-text-secondary sm:text-base">
                   {t.theBride}
                 </p>
                 <p className="mt-3 font-emotional text-3xl text-text-heading">{t.brideFull}</p>
               </Reveal>
+              <Reveal variant="right" delay={120}>
+                <p className="font-body text-sm uppercase text-text-secondary sm:text-base">
+                  {t.theGroom}
+                </p>
+                <p className="mt-3 font-emotional text-3xl text-text-heading">{t.groomFull}</p>
+              </Reveal>
             </div>
-
-              {/* <div className="absolute inset-0 z-0 bg-black"> */}
-                {/* <video
-                  ref={videoRef}
-                  // IMPORTANT: Place your video file in the public/assets/ folder!
-                  src="/src/assets/cinematic-video1.mp4" 
-                  playsInline
-                  // We can leave 'muted' off if your video has music, because the user 
-                  // already interacted with the page by tapping the wax seal!
-                  className="h-full w-full object-cover"
-                /> */}
-
-               
-              {/* </div> */}
 
           </section>
 
           <section>
-             {/* <video
-                  ref={videoRef}
-                  src="/src/assets/couple_dancing.mp4" 
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  style={{ width: '100%', height: 'auto' }}
-                /> */}
 
                 <div style={{
                   position: 'relative',
