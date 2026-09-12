@@ -182,8 +182,8 @@ export const translations: Record<Lang, Dict> = {
       blessing: "Your affectionate presence and blessings are the most precious gifts for us.",
       awaitingLabel: "Eagerly Awaiting Your Presence:",
       awaitingNames: [
-        "Smt. Leelaben Ramshanker Joshi",
-        "Smt. Kirtiben Hiteshkumar Joshi",
+        "Smt. Leela Joshi",
+        "Smt. Kirti Joshi",
       ],
       complimentsLabel: "Best Compliments From:",
       complimentsNames: "Smt. Archana Joshi & Dr. Rajesh Joshi",
@@ -315,8 +315,8 @@ export const translations: Record<Lang, Dict> = {
       blessing: "आपका स्नेहिल आशीर्वाद ही हमारे लिए सबसे अमूल्य उपहार है।",
       awaitingLabel: "दर्शनाकांक्षी",
       awaitingNames: [
-        "श्रीमती लीलाबेन रामशंकर जोशी",
-        "श्रीमती किर्तिबेन हितेशकुमार जोशी",
+        "श्रीमती लीला जोशी",
+        "श्रीमती किर्ति जोशी",
       ],
       complimentsLabel: "विनीत",
       complimentsNames: "श्रीमती अर्चना जोशी एवं डॉ. राजेश जोशी",
@@ -448,8 +448,8 @@ export const translations: Record<Lang, Dict> = {
       blessing: "આપના સ્નેહસભર આશીર્વાદ જ અમારા માટે સૌથી અમૂલ્ય ભેટ છે.",
       awaitingLabel: "દર્શનાભિલાષી",
       awaitingNames: [
-        "શ્રીમતી લીલાબેન રામશંકર જોશી",
-        "શ્રીમતી કિર્તિબેન હિતેશકુમાર જોશી",
+        "શ્રીમતી લીલા જોશી",
+        "શ્રીમતી કિર્તિ જોશી",
       ],
       complimentsLabel: "વિનીત",
       complimentsNames: "શ્રીમતી અર્ચના જોશી અને ડૉ. રાજેશ જોશી",
