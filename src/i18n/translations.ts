@@ -2,8 +2,6 @@ export type Lang = "en" | "hi" | "gu";
 
 export const LANGS: { code: Lang; label: string; short: string }[] = [
   { code: "en", label: "English", short: "EN" },
-  { code: "hi", label: "हिन्दी", short: "हि" },
-  { code: "gu", label: "ગુજરાતી", short: "ગુ" },
 ];
 
 type EventCopy = { name: string; time: string; date: string; tagline?: string };
