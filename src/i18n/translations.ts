@@ -107,7 +107,7 @@ export const translations: Record<Lang, Dict> = {
     shloka1: "Vakratunda Mahakaya Suryakoti Samaprabha,",
     shloka2: "Nirvighnam Kuru Me Deva Sarvakaryeshu Sarvada.",
     translitLine:
-      "O Lord with the curved trunk and mighty form, radiant as a million suns — may all our endeavours be free of obstacles, always.",
+      "O Lord with the curved trunk and mighty form, radiant as a million suns, may all our endeavours be free of obstacles, always.",
     coupleKicker: "with love, together forever",
     bride: "Shreya",
     groom: "Prabhav",
@@ -121,7 +121,7 @@ export const translations: Record<Lang, Dict> = {
     invitationLine: "Request the honour of your presence at the celebrations",
     coupleBlessing:
       "Two families, one thread of gold — bound by seven vows and a lifetime of light.",
-    familiesTitle: "Together With Our Families",
+    familiesTitle: "Together With the Families",
     theBride: "The Bride",
     theGroom: "The Groom",
     brideFull: "Shreya Joshi",
@@ -130,8 +130,8 @@ export const translations: Record<Lang, Dict> = {
     groomParents: "son of Subodh Srivastava & Garmia Srivastava",
     venueKicker: "where we celebrate",
     venueName: "Foxoso La Alphonso Beach Resort & Spa, Goa",
-    venueCta: "Open in Google Maps",
-    venueStoryTitle: "Where our story continues...",
+    venueCta: "The Venue",
+    venueStoryTitle: "Where the story continues...",
     venueStorySubtitle: "Under the golden Goa sun",
     beachSunsetAlt: "Beach sunset",
     gujarat: "Gujarat",
@@ -200,7 +200,7 @@ export const translations: Record<Lang, Dict> = {
         tagline: "Rings exchanged, dance battles and a whole lot of glamour",
       },
       masquerade: {
-        name: "Masque-Era",
+        name: "Mask-erade",
         time: "10:30 PM",
         date: "11th December",
         tagline: "Afterparty with maskaras hidden, masks on & dance shoes ready",
@@ -333,7 +333,7 @@ export const translations: Record<Lang, Dict> = {
         tagline: "अंगूठियों का आदान-प्रदान, नृत्य की टक्कर और ढेर सारी चमक-दमक",
       },
       masquerade: {
-        name: "मास्क-एरा",
+        name: "मास्क-एराडे",
         time: "रात १०:३०",
         date: "११ दिसंबर",
         tagline: "नकाबों के पीछे छिपे चेहरे, चेहरे पर नकाब और नृत्य के लिए तैयार कदम",
@@ -466,7 +466,7 @@ export const translations: Record<Lang, Dict> = {
         tagline: "વીંટીઓની આપ-લે, નૃત્યની ટક્કર અને ઘણી બધી ઝાકઝમાળ",
       },
       masquerade: {
-        name: "માસ્ક-એરા",
+        name: "માસ્ક-એરાડે",
         time: "રાત્રે ૧૦:૩૦",
         date: "૧૧ ડિસેમ્બર",
         tagline: "માસ્ક પાછળ છુપાયેલા ચહેરા, ચહેરા પર માસ્ક અને નૃત્ય માટે તૈયાર પગલાં",

@@ -208,8 +208,8 @@ export function TwoStatesUnion() {
               showHeart ? "scale-100 opacity-100" : "scale-0 opacity-0",
             )}
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-paper shadow-md animate-gentle-pulse">
-              <Heart className="h-8 w-8 fill-[oklch(0.55_0.12_15)] text-[oklch(0.55_0.11_15)]" />
+            <div className="flex items-center justify-center animate-gentle-pulse">
+              <Heart className="h-5 w-5 fill-[oklch(0.55_0.12_15)] text-[oklch(0.55_0.11_15)] sm:h-6 sm:w-6" />
             </div>
           </div>
 
@@ -219,8 +219,8 @@ export function TwoStatesUnion() {
                   "z-10 flex flex-col items-center text-text-secondary transition-opacity duration-500",
                   showHeart ? "opacity-0" : "opacity-100 animate-pulse"
                 )}>
-          <span className="mb-1 font-body text-[0.75rem] uppercase">{t.keepScrolling}</span>
-                  <ChevronDown className="h-5 w-5" />
+          <span className="mb-0.5 font-body text-[0.55rem] uppercase tracking-[0.14em]">{t.keepScrolling}</span>
+                  <ChevronDown className="h-3.5 w-3.5" />
         </div>
       </div>
     </section>
