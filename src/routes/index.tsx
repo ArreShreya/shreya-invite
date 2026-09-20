@@ -35,6 +35,36 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WeddingEvent",
+          name: "Milan — The Wedding of Shreya & Prabhav",
+          description:
+            "A beginning of forever... Join us for Mehandi, Sangeet, Masquerade, Haldi, Baarat, Varmala and Fera at Foxoso La Alphonso Beach Resort & Spa, Goa.",
+          startDate: "2026-12-11T00:00:00+05:30",
+          endDate: "2026-12-13T00:00:00+05:30",
+          eventStatus: "https://schema.org/EventScheduled",
+          eventAttendanceMode:
+            "https://schema.org/OfflineEventAttendanceMode",
+          location: {
+            "@type": "Place",
+            name: "Foxoso La Alphonso Beach Resort & Spa",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Goa",
+              addressCountry: "IN",
+            },
+          },
+          performer: [
+            { "@type": "Person", name: "Shreya" },
+            { "@type": "Person", name: "Prabhav" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Index,
 });
