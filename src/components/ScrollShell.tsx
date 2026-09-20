@@ -12,7 +12,20 @@ const CinematicEntry = lazy(() =>
 export function ScrollShell({ children }: { children: ReactNode }) {
   const [opened, setOpened] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const mainRef = useRef<HTMLElement | null>(null);
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (!opened) return;
+
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+
+    if (mainRef.current) {
+      mainRef.current.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [opened]);
 
   const audioRef = useRef<BackgroundAudioHandle>(null);
 
@@ -94,6 +107,7 @@ export function ScrollShell({ children }: { children: ReactNode }) {
 
         {/* Full-screen invitation content */}
         <main
+          ref={mainRef}
           className={`fixed inset-x-0 z-10 overflow-x-hidden overflow-y-auto overscroll-contain transition-opacity duration-700 ${
             opened ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
