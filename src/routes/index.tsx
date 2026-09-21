@@ -18,6 +18,7 @@ import { VenueOrbitReveal } from "@/components/VenueOrbitReveal";
 import { clsx } from "clsx";
 import coupleDanceVideo from "../assets/couple_dancing.mp4";
 import danceFrame4 from "../assets/dance_frame4.png";
+import entryRevealVideo from "../assets/entry_video.mp4";
 
 export const Route = createFileRoute("/")({
   head: () => ({
