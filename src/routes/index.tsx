@@ -279,6 +279,7 @@ function IndexContent() {
               className="mt-3 max-w-3xl space-y-2 font-body text-sm leading-relaxed text-text-secondary sm:text-base"
             >
               <p>{invitation.brideGrandparents}</p>
+              <p>{invitation.brideGrandparents2}</p>
               <p>{invitation.brideParents}</p>
             </Reveal>
 

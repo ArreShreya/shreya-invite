@@ -16,6 +16,7 @@ export type FormalInvitation = {
   conjunction: string;
   brideName: string;
   brideGrandparents: string;
+  brideGrandparents2: string;
   brideParents: string;
   announcement?: string;
   invitation: string;
@@ -174,14 +175,15 @@ export const translations: Record<Lang, Dict> = {
       conjunction: "with",
       brideName: "Shreya",
       brideGrandparents: "(Granddaughter of Smt. Leela & Late Shri Ramshanker Joshi)",
+      brideGrandparents2: "(Granddaughter of Late Smt. Shashikala & Late Shri Santoshkumar Sharma)",
       brideParents: "(Daughter of Smt. Archana & Dr. Rajesh Joshi)",
       invitation:
         "On this auspicious occasion, we cordially invite you and your family to grace the ceremony with your esteemed presence and shower the newlywed couple with your love, blessings, and good wishes.",
       blessing: "Your affectionate presence and blessings are the most precious gifts for us.",
       awaitingLabel: "Eagerly Awaiting Your Presence:",
       awaitingNames: [
-        "Smt. Leela Joshi",
-        "Smt. Kirti Joshi",
+        "Smt. Shivani & Shri Jaideepkumar Trivedi",
+        "Smt. Leela Joshi & Smt. Kirti Joshi" 
       ],
       complimentsLabel: "Best Compliments From:",
       complimentsNames: "Smt. Archana Joshi & Dr. Rajesh Joshi",
@@ -201,7 +203,7 @@ export const translations: Record<Lang, Dict> = {
       },
       masquerade: {
         name: "Mask-erade",
-        time: "10:30 PM",
+        time: "11 PM",
         date: "11th December",
         tagline: "Afterparty with masks on, maskaras hidden, & dance shoes ready for the masquerade",
       },
