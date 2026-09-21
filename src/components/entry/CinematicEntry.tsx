@@ -18,6 +18,12 @@ export function CinematicEntry({
   const { t } = useLang();
   const [stage, setStage] = useState<Stage>("sealed");
   const [reduced, setReduced] = useState(false);
+  /** true once the browser has decoded enough of the video to show frame 1 */
+  const [videoReady, setVideoReady] = useState(false);
+  /** safety valve: never hold the flap open indefinitely on a stalled network */
+  const [readyTimeout, setReadyTimeout] = useState(false);
+  /** the flap-open animation has run its full duration */
+  const [flapDone, setFlapDone] = useState(false);
 
   // Reference to the video element so we can command it to play
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -26,23 +32,40 @@ export function CinematicEntry({
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }, []);
 
-  // Stage 1 -> Stage 2: only after the flap has finished opening.
+  // Preload eagerly on mount — before the user ever taps.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.load();
+    if (v.readyState >= 3) setVideoReady(true);
+  }, []);
+
+  const markReady = useCallback(() => setVideoReady(true), []);
+
+  // The flap's own animation clock.
   useEffect(() => {
     if (stage !== "flap") return;
+    const id = window.setTimeout(() => setFlapDone(true), STAGE.flapOpen * 1000);
+    const bail = window.setTimeout(() => setReadyTimeout(true), 6000);
+    return () => {
+      window.clearTimeout(id);
+      window.clearTimeout(bail);
+    };
+  }, [stage]);
 
-    const id = window.setTimeout(() => {
-      setStage("flying");
-      // Play the video as soon as the envelope is fully open, and kick
-      // off the background audio (shloka -> looping BGM) at the same
-      // moment, since the entry video's own audio is muted.
-      if (videoRef.current) {
-        videoRef.current.play().catch((err) => console.warn("Video play failed:", err));
-      }
-      onVideoStart?.();
-    }, STAGE.flapOpen * 1000);
+  // Stage 1 -> Stage 2: the flap stays in place until BOTH its animation has
+  // finished AND the video can actually paint a frame, so no gap is exposed.
+  useEffect(() => {
+    if (stage !== "flap" || !flapDone) return;
+    if (!videoReady && !readyTimeout) return;
 
-    return () => window.clearTimeout(id);
-  }, [stage, onVideoStart]);
+    setStage("flying");
+    // Play the video as soon as the envelope is fully open, and kick
+    // off the background audio (shloka -> looping BGM) at the same
+    // moment, since the entry video's own audio is muted.
+    videoRef.current?.play().catch((err) => console.warn("Video play failed:", err));
+    onVideoStart?.();
+  }, [stage, flapDone, videoReady, readyTimeout, onVideoStart]);
 
   // Triggered automatically when the video reaches its end
   const handleArrive = () => {
@@ -67,17 +90,23 @@ export function CinematicEntry({
   return (
     <div className="fixed inset-0 z-[90] overflow-hidden bg-paper">
       {/* ---------- VIDEO LAYER ---------- */}
-      <div className="absolute inset-0 z-0 bg-black">
+      {/* Warm blush/ivory backdrop (never black) in case a frame is missing. */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_40%,#fdf3ec,#e9c6bb_70%,#d9a9a0)]">
         <video
           ref={videoRef}
           src={entryRevealVideo}
+          poster={entryPoster}
+          preload="auto"
           playsInline
           // Muted so it never competes with the shloka/BGM background audio.
           muted
+          onLoadedData={markReady}
+          onCanPlayThrough={markReady}
           onEnded={handleArrive}
           className="h-full w-full object-cover"
         />
       </div>
+
 
       {/* ---------- Stage 1: envelope + wax seal ---------- */}
       <AnimatePresence>
