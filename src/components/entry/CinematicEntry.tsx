@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import monogram from "@/assets/monogram-ps.png.asset.json";
 import { useLang } from "@/i18n/LanguageContext";
 import { STAGE } from "./entryConfig";
 import entryRevealVideo from "../../assets/entry_video.mp4";
+import entryPoster from "../../assets/entry-poster.jpg";
 
 type Stage = "sealed" | "flap" | "flying" | "open";
 
