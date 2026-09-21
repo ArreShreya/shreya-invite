@@ -199,7 +199,7 @@ export const translations: Record<Lang, Dict> = {
         name: "What Thumka!",
         time: "6:30 PM",
         date: "11th December",
-        tagline: "Rings exchanged, dance battles and a whole lot of glamour",
+        tagline: "Rings exchanged, dance performances and a whole lot of glamour",
       },
       masquerade: {
         name: "Mask-erade",
