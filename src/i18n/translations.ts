@@ -442,6 +442,7 @@ export const translations: Record<Lang, Dict> = {
       conjunction: "અને",
       brideName: "ચિ.સૌ. શ્રેયા",
       brideGrandparents: "(સુપૌત્રી - શ્રીમતી લીલા અને સ્વ. શ્રી રામશંકર જોશી)",
+      brideGrandparents2: "(સુપૌત્રી - સ્વ. શ્રીમતી શશિકલા અને સ્વ. શ્રી સંતોષકુમાર શર્મા)",
       brideParents: "(સુપુત્રી – શ્રીમતી અર્ચના અને ડૉ. રાજેશ જોષી)",
       announcement: "નો શુભ પરિણય સંસ્કાર સંપન્ન થવાનો છે.",
       invitation:
