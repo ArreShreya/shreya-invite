@@ -208,7 +208,7 @@ function MobileArc({
   const R = 88;
   const cy = H / 2;
   
-  const cx = facing === "left" ? 240 : 60;
+  const cx = facing === "left" ? 270 : 30;
 
   const at = (i: number) => {
     const isDayTwoArc = facing === "right" && ids.length === 4;
@@ -267,7 +267,7 @@ function MobileArc({
           <a
             key={id}
             href={`#${id}`}
-            className="press absolute flex w-[48%] items-center gap-3"
+            className="press absolute flex w-max items-center gap-3"
             style={{
               left: `${leftPct}%`,
               top: `${topPct}%`,
@@ -287,8 +287,8 @@ function MobileArc({
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/60 bg-paper-tint text-text-heading">
                 <EventIcon id={id} className="h-5 w-5" />
               </span>
-              <span className="min-w-0 flex-1">
-                <span className="block font-heading text-[18px] font-semibold leading-tight text-text-heading">
+              <span>
+                <span className="block whitespace-nowrap font-heading text-[18px] font-semibold leading-tight text-text-heading">
                   {c.name}
                 </span>
                 <span className="mt-0.5 block font-numeric text-[16px] text-text-secondary">
