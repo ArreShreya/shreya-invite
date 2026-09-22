@@ -13,6 +13,7 @@ import { PageOrnaments, GoldDivider } from "@/components/Ornaments";
 import { Reveal } from "@/components/Reveal";
 import { ShlokaText } from "@/components/ShlokaText";
 import { ClosingPage } from "@/components/ClosingPage";
+import { SparkleName } from "@/components/SparkleName";
 import { TwoStatesUnion } from "@/components/TwoStatesUnion";
 import { VenueOrbitReveal } from "@/components/VenueOrbitReveal";
 import { clsx } from "clsx";
@@ -275,7 +276,7 @@ function IndexContent() {
               delay={200}
               className="mt-4 font-emotional text-4xl leading-tight text-text-heading sm:text-5xl"
             >
-              {invitation.brideName}
+              <SparkleName text={invitation.brideName} />
             </Reveal>
             <Reveal
               as="div"
@@ -301,7 +302,7 @@ function IndexContent() {
               delay={320}
               className="font-emotional text-4xl leading-tight text-text-heading sm:text-5xl"
             >
-              {invitation.groomName}
+              <SparkleName text={invitation.groomName} />
             </Reveal>
             <Reveal
               as="p"
