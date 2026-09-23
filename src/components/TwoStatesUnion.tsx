@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 import { Heart, ChevronDown } from "lucide-react";
 import { clsx } from "clsx";
 import { PageOrnaments } from "@/components/Ornaments";
@@ -12,6 +13,7 @@ export function TwoStatesUnion() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [hasCompletedAnimation, setHasCompletedAnimation] = useState(false);
+  const completionInProgressRef = useRef(false);
   // Gujarat and Uttar Pradesh used to each run their own independent
   // scroll-trigger (via <Reveal>). Because this is a tall sticky section,
   // the top-positioned Gujarat block would cross into view well before the
@@ -60,9 +62,31 @@ export function TwoStatesUnion() {
       if (progress > 0.02) setRevealed(true);
 
       if (progress >= 1) {
-        setHasCompletedAnimation(true);
-        setScrollProgress(1);
-        setRevealed(true);
+        if (completionInProgressRef.current) return;
+        completionInProgressRef.current = true;
+
+        // The first pass needs the tall track to draw the connectors. Once it
+        // finishes, collapse it before the next paint and offset the removed
+        // distance in the real scroll container. The formerly sticky final
+        // frame and the compact static frame then occupy the exact same pixels,
+        // so there is no visible jump and no dead scroll distance on revisits.
+        const expandedHeight = container.getBoundingClientRect().height;
+        flushSync(() => {
+          setHasCompletedAnimation(true);
+          setScrollProgress(1);
+          setRevealed(true);
+        });
+
+        const compactHeight = container.getBoundingClientRect().height;
+        const removedHeight = Math.max(0, expandedHeight - compactHeight);
+
+        if (removedHeight > 0) {
+          if (scrollParent instanceof HTMLElement) {
+            scrollParent.scrollTop = Math.max(0, scrollParent.scrollTop - removedHeight);
+          } else {
+            window.scrollBy({ top: -removedHeight, behavior: "instant" });
+          }
+        }
       }
     };
 
@@ -116,13 +140,24 @@ export function TwoStatesUnion() {
 
 
   return (
-    <section ref={containerRef} className="relative h-[250dvh] w-full snap-start bg-paper">
+    <section
+      ref={containerRef}
+      className={clsx(
+        "relative w-full snap-start bg-paper",
+        hasCompletedAnimation ? "h-dvh" : "h-[250dvh]",
+      )}
+    >
       {/* h-dvh (not h-screen/100vh) so this matches the browser's real, currently
           visible viewport on mobile - 100vh is defined by many mobile browsers as
           the LARGEST possible viewport (address bar hidden), which is taller than
           what's actually on screen while the bar is showing. That mismatch is what
           was clipping the Uttar Pradesh image at the true screen edge. */}
-      <div className="sticky top-0 flex h-dvh w-full flex-col items-center justify-center overflow-hidden px-6">
+      <div
+        className={clsx(
+          "top-0 flex h-dvh w-full flex-col items-center justify-center overflow-hidden px-6",
+          hasCompletedAnimation ? "relative" : "sticky",
+        )}
+      >
         <PageOrnaments />
 
         <div ref={stageRef} className="relative flex h-[65vh] w-full flex-col sm:h-[65vh] md:h-[65h]">

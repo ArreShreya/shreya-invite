@@ -10,3 +10,4 @@
 - [x] Add a staggered spring-and-petal entrance to the countdown units.
 - [x] Keep both state illustrations large and legible while fluidly preventing overlap at every viewport width.
 - [x] Preserve strong connector arcs on phone, mid-width, tablet, and full desktop layouts.
+- [x] Collapse the Two States scroll track after its first completed animation without a visual jump.
