@@ -3,7 +3,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import { PageOrnaments, GoldDivider } from "./Ornaments";
 import { Reveal } from "./Reveal";
 
-const HOTEL_URL = "https://www.foxosohotels.com/la-beach-resorts-goa/goa-hotels/hotel-rooms";
+const HOTEL_URL = "https://www.google.com/maps/place/Foxoso+La+Alphonso+Beach+Resort+%26+Spa,+Goa/@15.6271107,73.7275439,17z/data=!4m10!3m9!1s0x3bbfe9548ae2abb9:0xfc61620bd7271cb9!5m3!1s2026-12-11!4m1!1i2!8m2!3d15.6271055!4d73.7301188!16s%2Fg%2F11h249ydcr?entry=ttu&g_ep=EgoyMDI2MDkyMC4wIKXMDSoASAFQAw%3D%3D";
 
 export function VenuePage() {
   const { t } = useLang();
