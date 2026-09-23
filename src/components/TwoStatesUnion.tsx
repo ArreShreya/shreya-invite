@@ -11,6 +11,7 @@ export function TwoStatesUnion() {
   const { t } = useLang();
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [hasCompletedAnimation, setHasCompletedAnimation] = useState(false);
   // Gujarat and Uttar Pradesh used to each run their own independent
   // scroll-trigger (via <Reveal>). Because this is a tall sticky section,
   // the top-positioned Gujarat block would cross into view well before the
@@ -46,19 +47,32 @@ export function TwoStatesUnion() {
       let progress = -top / scrollDistance;
 
       progress = Math.max(0, Math.min(1, progress));
+
+      if (hasCompletedAnimation) {
+        setScrollProgress(1);
+        setRevealed(true);
+        return;
+      }
+
       setScrollProgress(progress);
       // Section has started engaging (its sticky pin is active) - reveal
       // both states together and never hide them again once shown.
       if (progress > 0.02) setRevealed(true);
+
+      if (progress >= 1) {
+        setHasCompletedAnimation(true);
+        setScrollProgress(1);
+        setRevealed(true);
+      }
     };
 
     scrollParent.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => scrollParent.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [hasCompletedAnimation]);
 
-  const showHeart = scrollProgress > 0.95;
+  const showHeart = hasCompletedAnimation || scrollProgress > 0.95;
 
   // The dotted connectors are drawn in REAL pixel space (viewBox matches the
   // measured container box), so the arc curvature and the dash pattern look
