@@ -368,50 +368,49 @@ function IndexContent() {
 
           </section>
 
-          <section>
+          <section className="flex justify-center px-4 py-4">
+            <div
+              style={{
+                position: "relative",
+                width: "min(88vw, 400px)",
+                aspectRatio: "2 / 3",
+                margin: "0 auto",
+              }}
+            >
+              <video
+                ref={videoRef}
+                src={coupleDanceVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  position: "absolute",
+                  top: "12%",
+                  left: "12%",
+                  width: "76%",
+                  height: "76%",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  clipPath: "ellipse(42% 45% at 50% 50%)",
+                  zIndex: 1,
+                }}
+              />
 
-                <div style={{
-                  position: 'relative',
-                  width: '400px',        // Set this to your frame's optimal dimensions
-                  height: '600px',       // Matches the frame height
-                  margin: '0 auto'
-                }}>
-                  {/* 1. The Video Layer (Placed in the background) */}
-                  <video
-                    ref={videoRef}
-                    src={coupleDanceVideo} 
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    style={{
-                      position: 'absolute',
-                      top: '12%',        // Adjust positioning to line up with the center cutout
-                      left: '12%',
-                      width: '76%',      // Shrinks the video bounds to roughly fit inside the inner oval
-                      height: '76%',
-                      objectFit: 'cover',
-                      // Mask the video into an ellipse so its corners do not bleed past the frame
-                      clipPath: 'ellipse(42% 45% at 50% 50%)', 
-                      zIndex: 1
-                    }}
-                  />
-
-                  {/* 2. The Transparent PNG Frame (Overlays on top of the video) */}
-                  <img 
-                     src={danceFrame4}
-                    alt={t.ornamentalOvalFrameAlt}
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      pointerEvents: 'none', // Allows users to right-click or click through to the video controls if needed
-                      zIndex: 2
-                    }}
-                  />
-              </div>
+              <img
+                src={danceFrame4}
+                alt={t.ornamentalOvalFrameAlt}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  pointerEvents: "none",
+                  zIndex: 2,
+                }}
+              />
+            </div>
           </section>
 
           <TimelinePage />
