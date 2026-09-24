@@ -847,7 +847,7 @@
   animation: particle-fall 11s linear infinite;
 }
 
-/* ---------- Sparkles around the couple's names ---------- */
+/* ---------- Sparkles and letter glitter on the couple's names ---------- */
 @keyframes name-twinkle {
   0%,
   100% {
@@ -864,6 +864,53 @@
   filter: drop-shadow(0 0 3px oklch(0.9 0.1 85 / 0.55));
 }
 
+@keyframes name-glitter-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%, 8% 30%, 68% 72%;
+    opacity: 0.28;
+  }
+  48% {
+    background-position: 115% 50%, 52% 64%, 28% 18%;
+    opacity: 0.62;
+  }
+  64% {
+    background-position: 135% 50%, 72% 42%, 48% 82%;
+    opacity: 0.42;
+  }
+}
+
+.name-glitter {
+  color: transparent;
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 34%,
+      color-mix(in oklch, var(--gold) 82%, transparent) 47%,
+      color-mix(in oklch, var(--gold) 35%, transparent) 53%,
+      transparent 66%
+    ),
+    radial-gradient(
+      circle,
+      color-mix(in oklch, var(--gold) 92%, white) 0 0.7px,
+      transparent 1.25px
+    ),
+    radial-gradient(
+      circle,
+      color-mix(in oklch, var(--gold) 74%, white) 0 0.55px,
+      transparent 1.1px
+    );
+  background-size: 55% 100%, 11px 13px, 17px 19px;
+  background-repeat: no-repeat, repeat, repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+}
+
+.name-glitter-active {
+  animation: name-glitter-shimmer 4.8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .region-glow,
   .region-sway,
@@ -877,6 +924,11 @@
   .name-sparkle {
     animation: none;
     opacity: 0.5;
+  }
+  .name-glitter-active {
+    animation: none;
+    background-position: 52% 50%, 30% 55%, 62% 28%;
+    opacity: 0.34;
   }
 }
 

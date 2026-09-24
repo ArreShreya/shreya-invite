@@ -36,6 +36,14 @@ export function SparkleName({
   return (
     <span ref={ref} className="relative inline-block">
       <span className={className}>{text}</span>
+      <span
+        aria-hidden="true"
+        className={`${className} name-glitter pointer-events-none absolute inset-0 ${
+          inView ? "name-glitter-active" : ""
+        }`}
+      >
+        {text}
+      </span>
       {inView &&
         SPARKLES.map((s, i) => (
           <svg
