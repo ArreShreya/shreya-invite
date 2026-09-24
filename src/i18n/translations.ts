@@ -182,7 +182,7 @@ export const translations: Record<Lang, Dict> = {
       blessing: "Your affectionate presence and blessings are the most precious gifts for us.",
       awaitingLabel: "Eagerly Awaiting Your Presence:",
       awaitingNames: [
-        "Smt. Shivani & Shri Jaideepkumar Trivedi",
+        "Smt. Shivani & Shri Jaydeepkumar Trivedi",
         "Smt. Leela Joshi & Smt. Kirti Joshi" 
       ],
       complimentsLabel: "Best Compliments From:",
