@@ -186,7 +186,7 @@ export const translations: Record<Lang, Dict> = {
         "Smt. Leela Joshi & Smt. Kirti Joshi" 
       ],
       complimentsLabel: "Best Compliments From:",
-      complimentsNames: "Smt. Archana Joshi & Dr. Rajesh Joshi",
+      complimentsNames: "Smt. Archana & Dr. Rajesh Joshi",
     },
     events: {
       mehandi: {
@@ -223,7 +223,7 @@ export const translations: Record<Lang, Dict> = {
         name: "Suraj Hua Maddham",
         time: "5:30 PM",
         date: "12th December",
-        tagline: "Sundowner jaimaal on the beach",
+        tagline: "Sundowner varmala on the beach",
       },
       fera: {
         name: "Taaron ki Chhanv",
